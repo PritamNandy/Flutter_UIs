@@ -1,2 +1,2 @@
-# Flutter_UIs
- Basic Static Flutter UIs
+# Flutter UIs
+ Static Flutter UIs
