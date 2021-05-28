@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:restro/main.dart';
 
 class Detail extends StatefulWidget {
+  final String url;
+  final String title;
+  final String subtitle;
+  Detail(this.url, this.title, this.subtitle);
   @override
   _DetailState createState() => _DetailState();
 }
@@ -35,12 +39,14 @@ class _DetailState extends State<Detail> {
       ),
       body: Stack(
         children: [
-          Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: NetworkImage(
-                    'https://www.lironboylston.com/wp-content/uploads/2020/12/WBC_7095.jpg'),
-                fit: BoxFit.cover,
+          Hero(
+            tag: widget.url,
+            child: Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: NetworkImage(widget.url),
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
           ),
@@ -111,7 +117,7 @@ class _DetailState extends State<Detail> {
                     color: Colors.black.withOpacity(.2),
                   ),
                   child: Text(
-                    '175 reviews, 10 friends',
+                    widget.subtitle + ', 10 friends',
                     style: TextStyle(
                       fontSize: 15,
                       fontFamily: 'poppins',
@@ -121,7 +127,7 @@ class _DetailState extends State<Detail> {
                   ),
                 ),
                 Text(
-                  'Brunch',
+                  widget.title,
                   style: TextStyle(
                     fontFamily: 'poppins',
                     fontSize: 50,

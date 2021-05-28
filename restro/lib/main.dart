@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.yellow,
       ),
-      home: Detail(),
+      home: MyHomePage(),
     );
   }
 }
@@ -88,17 +88,20 @@ class _MyHomePageState extends State<MyHomePage> {
                         'Biriyani',
                         '267 Reviews',
                         'https://www.tripsavvy.com/thmb/f-VZrcG8tCbTyAw3pcGI7RGBpx8=/2121x1414/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-639704020-7fc1d09875084524bada655b9ff7e678.jpg',
-                        4.8),
+                        4.8,
+                        context),
                     buildItem(
                         'Veg Thali',
                         '135 Reviews',
                         'https://www.arabnews.pk/sites/default/files/2020/08/21/2239296-1633656161.jpg',
-                        4.3),
+                        4.3,
+                        context),
                     buildItem(
                         'Chicken Paneer',
                         '186 Reviews',
                         'https://www.thespruceeats.com/thmb/XDmwhz9HXEMxhus08YhlIvTuAZI=/3865x2174/smart/filters:no_upscale()/paneer-makhani-or-shahi-paneer-indian-food-670906899-5878ef725f9b584db3d890f4.jpg',
-                        4.76)
+                        4.76,
+                        context)
                   ],
                 ),
               ),
@@ -110,89 +113,102 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-Container buildItem(String title, String subtitle, String url, double rating) {
-  return Container(
-    margin: EdgeInsets.symmetric(
-      vertical: 10,
-    ),
-    padding: EdgeInsets.symmetric(horizontal: 10),
-    child: Column(
-      children: [
-        Container(
-          height: 200,
-          width: double.infinity,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: NetworkImage(url),
-              fit: BoxFit.cover,
-            ),
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(10),
-              topRight: Radius.circular(10),
-            ),
-          ),
+GestureDetector buildItem(String title, String subtitle, String url,
+    double rating, BuildContext context) {
+  return GestureDetector(
+    onTap: () {
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (BuildContext context) => Detail(url, title, subtitle),
         ),
-        Container(
-          padding: EdgeInsets.all(20),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(10),
-              bottomRight: Radius.circular(10),
-            ),
-            boxShadow: [
-              BoxShadow(
-                blurRadius: 1,
-                spreadRadius: .7,
-                color: Colors.grey,
-              ),
-            ],
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    child: Text(
-                      title,
-                      style: TextStyle(
-                        fontFamily: 'poppins',
-                        fontSize: 15,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ),
-                  Container(
-                    child: Text(
-                      subtitle,
-                      style: TextStyle(
-                        fontFamily: 'poppins',
-                        fontSize: 13,
-                        fontWeight: FontWeight.w400,
-                        color: Colors.grey,
-                      ),
-                    ),
-                  )
-                ],
-              ),
-              CircleAvatar(
-                backgroundColor: Colors.yellow.shade800,
-                child: Text(
-                  rating.toString(),
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontFamily: 'poppins',
-                    fontWeight: FontWeight.w600,
-                  ),
+      );
+    },
+    child: Container(
+      margin: EdgeInsets.symmetric(
+        vertical: 10,
+      ),
+      padding: EdgeInsets.symmetric(horizontal: 10),
+      child: Column(
+        children: [
+          Hero(
+            tag: url,
+            child: Container(
+              height: 200,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: NetworkImage(url),
+                  fit: BoxFit.cover,
                 ),
-              )
-            ],
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(10),
+                  topRight: Radius.circular(10),
+                ),
+              ),
+            ),
           ),
-        ),
-      ],
+          Container(
+            padding: EdgeInsets.all(20),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(10),
+                bottomRight: Radius.circular(10),
+              ),
+              boxShadow: [
+                BoxShadow(
+                  blurRadius: 1,
+                  spreadRadius: .7,
+                  color: Colors.grey,
+                ),
+              ],
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      child: Text(
+                        title,
+                        style: TextStyle(
+                          fontFamily: 'poppins',
+                          fontSize: 15,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
+                    Container(
+                      child: Text(
+                        subtitle,
+                        style: TextStyle(
+                          fontFamily: 'poppins',
+                          fontSize: 13,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.grey,
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+                CircleAvatar(
+                  backgroundColor: Colors.yellow.shade800,
+                  child: Text(
+                    rating.toString(),
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontFamily: 'poppins',
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
+        ],
+      ),
     ),
   );
 }
