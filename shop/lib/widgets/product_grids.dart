@@ -13,7 +13,7 @@ class ProductGrids extends StatelessWidget {
       padding: const EdgeInsets.all(10.0),
       itemCount: products.length,
       itemBuilder: (ctx, i) => ChangeNotifierProvider(
-        create: (c) => Product(),
+        create: (c) => products[i],
         child: ProductItem(
             // products[i].id,
             // products[i].title,
