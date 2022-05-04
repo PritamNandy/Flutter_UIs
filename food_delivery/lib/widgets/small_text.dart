@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class BigText extends StatelessWidget {
+class SmallText extends StatelessWidget {
   Color? color;
   final String text;
   double size;
@@ -8,10 +8,10 @@ class BigText extends StatelessWidget {
   double height;
 
   // ignore: use_key_in_widget_constructors
-  BigText({
+  SmallText({
     this.color = Colors.black,
     required this.text,
-    this.size = 20,
+    this.size = 15,
     this.height = 1.2,
     this.overflow,
   });
