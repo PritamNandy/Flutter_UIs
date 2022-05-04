@@ -11,7 +11,7 @@ class SmallText extends StatelessWidget {
   SmallText({
     this.color = Colors.black,
     required this.text,
-    this.size = 15,
+    this.size = 14,
     this.height = 1.2,
     this.overflow,
   });
