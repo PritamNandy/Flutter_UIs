@@ -28,6 +28,10 @@ class _FoodPageBodyState extends State<FoodPageBody> {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         color: Color(0xFF69c5df),
+        image: DecorationImage(
+          fit: BoxFit.cover,
+          image: AssetImage("assets/images/1.jpg"),
+        ),
       ),
     );
   }
