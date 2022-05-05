@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/home/food_page_body.dart';
 import 'package:food_delivery/utils/colors.dart';
+import 'package:food_delivery/utils/dimensions.dart';
 import 'package:food_delivery/widgets/big_text.dart';
 import 'package:food_delivery/widgets/small_text.dart';
 
@@ -18,8 +19,9 @@ class _MainFoodPageState extends State<MainFoodPage> {
       body: Column(
         children: [
           Container(
-            margin: EdgeInsets.only(top: 45, bottom: 15),
-            padding: EdgeInsets.only(right: 15, left: 15),
+            margin: EdgeInsets.only(top: 45, bottom: Dimensions.height15),
+            padding: EdgeInsets.only(
+                right: Dimensions.height15, left: Dimensions.height15),
             child: Container(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -29,7 +31,7 @@ class _MainFoodPageState extends State<MainFoodPage> {
                       BigText(
                         text: 'Bangladesh',
                         color: AppColors.mainColor,
-                        size: 20,
+                        size: Dimensions.font20,
                       ),
                       Row(
                         children: [
@@ -48,7 +50,7 @@ class _MainFoodPageState extends State<MainFoodPage> {
                     width: 45,
                     height: 45,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(Dimensions.height10),
                       color: AppColors.mainColor,
                     ),
                     child: Icon(
