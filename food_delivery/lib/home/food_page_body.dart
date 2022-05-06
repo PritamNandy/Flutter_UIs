@@ -39,6 +39,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        //Slider
         Container(
           height: Dimensions.pageView,
           child: PageView.builder(
@@ -49,6 +50,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
             },
           ),
         ),
+        //Dots
         new DotsIndicator(
           dotsCount: 5,
           position: _currentPageValue,
@@ -59,6 +61,137 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                 borderRadius: BorderRadius.circular(5.0)),
             color: AppColors.signColor, // Inactive color
             activeColor: AppColors.mainColor,
+          ),
+        ),
+        //Popular Text
+        SizedBox(
+          width: Dimensions.height10,
+        ),
+        Container(
+          margin: EdgeInsets.all(Dimensions.height20),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              BigText(
+                text: 'Popular',
+              ),
+              SizedBox(
+                width: Dimensions.height10,
+              ),
+              Container(
+                margin: const EdgeInsets.only(
+                  bottom: 3,
+                ),
+                child: BigText(
+                  text: '.',
+                  color: Colors.black26,
+                ),
+              ),
+              SizedBox(
+                width: Dimensions.height10,
+              ),
+              Container(
+                margin: const EdgeInsets.only(
+                  bottom: 2,
+                ),
+                child: SmallText(
+                  text: 'Food Pairing',
+                  color: Colors.black26,
+                ),
+              )
+            ],
+          ),
+        ),
+        //List and Images
+        Container(
+          height: 700,
+          child: ListView.builder(
+            physics: NeverScrollableScrollPhysics(),
+            //shrinkWrap: true,
+            itemCount: 10,
+            itemBuilder: (ctx, index) {
+              return Container(
+                margin: EdgeInsets.only(
+                  left: Dimensions.height10,
+                  right: Dimensions.height10,
+                  bottom: Dimensions.height10,
+                ),
+                child: Row(
+                  children: [
+                    //Image
+                    Container(
+                      width: 120,
+                      height: 120,
+                      decoration: BoxDecoration(
+                        borderRadius:
+                            BorderRadius.circular(Dimensions.height10),
+                        color: Colors.white,
+                        image: DecorationImage(
+                          fit: BoxFit.cover,
+                          image: AssetImage('assets/images/2.jpg'),
+                        ),
+                      ),
+                    ),
+                    //Text
+                    Expanded(
+                      child: Container(
+                        height: 100,
+                        //width: 200,
+                        padding: EdgeInsets.only(
+                          top: Dimensions.height10,
+                          bottom: Dimensions.height10,
+                        ),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(Dimensions.height10),
+                            bottomRight: Radius.circular(Dimensions.height10),
+                          ),
+                          color: Colors.white,
+                        ),
+                        child: Padding(
+                          padding: EdgeInsets.only(
+                            left: Dimensions.height10,
+                            right: Dimensions.height10,
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              BigText(text: 'Nutricious Food meal in China'),
+                              SmallText(
+                                text: 'Best Chinese Dishes in town',
+                                color: Colors.black26,
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  IconAndText(
+                                    icon: Icons.circle_sharp,
+                                    text: "Normal",
+                                    iconColor: AppColors.iconColor1,
+                                  ),
+                                  IconAndText(
+                                    icon: Icons.location_on,
+                                    text: "1.7km",
+                                    iconColor: AppColors.mainColor,
+                                  ),
+                                  IconAndText(
+                                    icon: Icons.timer_outlined,
+                                    text: "31mins",
+                                    iconColor: AppColors.iconColor2,
+                                  )
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            },
           ),
         ),
       ],

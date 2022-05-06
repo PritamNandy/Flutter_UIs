@@ -14,7 +14,7 @@ class BigText extends StatelessWidget {
     required this.text,
     this.size = 0,
     this.height = 1.2,
-    this.overflow,
+    this.overflow = TextOverflow.ellipsis,
   });
 
   @override
