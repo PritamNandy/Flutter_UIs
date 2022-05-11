@@ -120,8 +120,8 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                   children: [
                     //Image
                     Container(
-                      width: 120,
-                      height: 120,
+                      width: Dimensions.listViewImg,
+                      height: Dimensions.listViewImg,
                       decoration: BoxDecoration(
                         borderRadius:
                             BorderRadius.circular(Dimensions.height10),
@@ -135,7 +135,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                     //Text
                     Expanded(
                       child: Container(
-                        height: 100,
+                        height: Dimensions.listViewTextContainer,
                         //width: 200,
                         padding: EdgeInsets.only(
                           top: Dimensions.height10,
