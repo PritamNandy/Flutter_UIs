@@ -76,7 +76,7 @@ class PopularFoodDetail extends StatelessWidget {
         ],
       ),
       bottomNavigationBar: Container(
-        height: 120,
+        height: Dimensions.bottomHeight,
         padding: EdgeInsets.symmetric(
           vertical: Dimensions.height20,
           horizontal: Dimensions.height10,
@@ -132,7 +132,7 @@ class PopularFoodDetail extends StatelessWidget {
                 right: Dimensions.height20,
               ),
               child: BigText(
-                text: 'Add to cart',
+                text: '\$10 | Add to cart',
                 color: Colors.white,
               ),
               decoration: BoxDecoration(
