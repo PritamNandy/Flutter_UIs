@@ -2,6 +2,7 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery/utils/colors.dart';
 import 'package:food_delivery/utils/dimensions.dart';
+import 'package:food_delivery/widgets/app_column.dart';
 import 'package:food_delivery/widgets/big_text.dart';
 import 'package:food_delivery/widgets/icon_and_text.dart';
 import 'package:food_delivery/widgets/small_text.dart';
@@ -153,37 +154,8 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                             left: Dimensions.height10,
                             right: Dimensions.height10,
                           ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              BigText(text: 'Nutricious Food meal in China'),
-                              SmallText(
-                                text: 'Best Chinese Dishes in town',
-                                color: Colors.black26,
-                              ),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  IconAndText(
-                                    icon: Icons.circle_sharp,
-                                    text: "Normal",
-                                    iconColor: AppColors.iconColor1,
-                                  ),
-                                  IconAndText(
-                                    icon: Icons.location_on,
-                                    text: "1.7km",
-                                    iconColor: AppColors.mainColor,
-                                  ),
-                                  IconAndText(
-                                    icon: Icons.timer_outlined,
-                                    text: "31mins",
-                                    iconColor: AppColors.iconColor2,
-                                  )
-                                ],
-                              ),
-                            ],
+                          child: AppColumn(
+                            text: 'Chinese Food',
                           ),
                         ),
                       ),
