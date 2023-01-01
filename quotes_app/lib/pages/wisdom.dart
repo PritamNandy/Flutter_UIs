@@ -40,7 +40,7 @@ class _WisdomState extends State<Wisdom> {
           children: [
             Container(
               width: 350,
-              margin: EdgeInsets.all(70),
+              margin: EdgeInsets.all(30),
               padding: EdgeInsets.all(15),
               decoration: BoxDecoration(
                 color: Colors.amber,
