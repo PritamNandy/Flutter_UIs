@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import './pages/home.dart';
+import './pages/movie_list_view.dart';
 
 void main() {
   runApp(
-    const MaterialApp(
+    MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: BillSplitter(),
+      home: MovieListView(),
     ),
   );
 }
