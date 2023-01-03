@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:movie_list_view/models/movie.dart';
 
 class MovieListViewDetails extends StatelessWidget {
-  const MovieListViewDetails({super.key, required this.movieName});
+  const MovieListViewDetails(
+      {super.key, required this.movieName, required this.movie});
 
   final String movieName;
+  final Movie movie;
 
   @override
   Widget build(BuildContext context) {
