@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_list_view/models/movie.dart';
+import 'package:movie_list_view/pages/movie_list_view.dart';
 
 class MovieListViewDetails extends StatelessWidget {
   const MovieListViewDetails(
@@ -16,15 +17,11 @@ class MovieListViewDetails extends StatelessWidget {
         title: Text("Movie: ${movieName}"),
         backgroundColor: Colors.blueGrey.shade900,
       ),
-      body: Center(
-        child: Container(
-          child: ElevatedButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            child: Text('Go Back'),
-          ),
-        ),
+      body: ListView(
+        children: [
+          MovieDetailsThumbnail(thumbnail: movie.images[0]),
+          MovieDetailsHeaderWithPoster(movie: movie),
+        ],
       ),
     );
   }
